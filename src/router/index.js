@@ -1,6 +1,12 @@
 import {createRouter, createWebHistory } from 'vue-router'
 import Body from './../components/BodyC.vue'
 import Login from './../components/LoginC.vue'
+import Books from "@/components/BooksC.vue";
+import Book from "@/components/BookC.vue";
+import BooksAdmin from "@/components/BooksAdmin.vue";
+import BookEdit from "@/components/BookEdit.vue";
+import Users from "@/components/UsersC.vue";
+import UserEdit from "@/components/UserEdit.vue";
 
 const routes = [
     {
@@ -12,7 +18,37 @@ const routes = [
         path: '/login',
         name: 'Login',
         component: Login
-    }
+    },
+    {
+        path: '/books',
+        name: 'Books',
+        component: Books
+    },
+    {
+        path: '/books/:bookName',
+        name: 'Book',
+        component: Book
+    },
+    {
+        path: '/admin/books',
+        name: 'BooksAdmin',
+        component: BooksAdmin
+    },
+    {
+        path: '/admin/books/:bookId',
+        name: 'BookEdit',
+        component: BookEdit
+    },
+    {
+        path: '/admin/users',
+        name: 'Users',
+        component: Users
+    },
+    {
+        path: '/admin/users/:userId',
+        name: 'UserEdit',
+        component: UserEdit
+    },
 ]
 
 const router = createRouter({history: createWebHistory(), routes})
