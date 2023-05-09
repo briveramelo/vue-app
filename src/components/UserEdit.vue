@@ -55,6 +55,15 @@
               name="password"
           ></text-input>
 
+          <div class="form-check">
+            <input v-model="user.active" class="form-check-input" type="radio" id="user-active" :value="1">
+            <label for="user-active" class="form-check-label">Active</label>
+          </div>
+          <div class="form-check">
+            <input v-model="user.active" class="form-check-input" type="radio" id="user-active-2" :value="0">
+            <label for="user-active-2" class="form-check-label">Inactive</label>
+          </div>
+
           <div class="float-start">
             <input type="submit" class="btn-primary btn me-2" value="Save">
             <router-link to="/admin/users" class="btn btn-outline-secondary">Cancel</router-link>
@@ -108,6 +117,7 @@ export default {
         last_name: "",
         email: "",
         password: "",
+        active: 0,
       },
       store,
     }
@@ -124,6 +134,7 @@ export default {
         last_name: this.user.last_name,
         email: this.user.email,
         password: this.user.password,
+        active: this.user.active
       }
 
       fetch(`${process.env.VUE_APP_API_URL}/admin/users/save`, Security.requestOptions(payload))

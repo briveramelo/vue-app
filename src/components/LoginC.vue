@@ -56,7 +56,7 @@ export default {
     submitHandler(){
       const payload = {
         email: this.email,
-        password: this.password
+        password: this.password,
       }
 
       fetch(`${process.env.VUE_APP_API_URL}/users/login`, Security.requestOptions(payload))
