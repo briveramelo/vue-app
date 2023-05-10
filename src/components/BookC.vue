@@ -1,21 +1,24 @@
 <template>
   <div class="container">
-    <div v-if="ready" class="row">
+    <div class="row">
 
       <div class="col-md-2">
-        <img :src="`${imgPath}/covers/${book.slug}.jpg`" alt="cover" class="img-fluid img-thumbnail">
+        <img v-if="ready" :src="`${imgPath}/covers/${book.slug}.jpg`" alt="cover" class="img-fluid img-thumbnail">
       </div>
 
       <div class="col-md-10">
-        <h3 class="mt-3"> {{book.title}} </h3>
-        <hr>
-        <p>
-          <strong>Author:</strong> {{ book.author.author_name }}<br>
-          <strong>Published:</strong> {{book.publication_year}}<br>
-        </p>
-        <p>
-          {{book.description}}
-        </p>
+        <template v-if="ready">
+          <h3 class="mt-3"> {{book.title}} </h3>
+          <hr>
+          <p>
+            <strong>Author:</strong> {{ book.author.author_name }}<br>
+            <strong>Published:</strong> {{book.publication_year}}<br>
+          </p>
+          <p>
+            {{book.description}}
+          </p>
+        </template>
+        <p v-else>Loading...</p>
       </div>
     </div>
   </div>
@@ -23,6 +26,7 @@
 
 <script>
 export default {
+  name:"Book",
   data(){
     return {
       book: {},
@@ -30,7 +34,7 @@ export default {
       ready: false,
     }
   },
-  created(){
+  mounted () {
     fetch(`${process.env.VUE_APP_API_URL}/books/${this.$route.params.bookName}`)
         .then(response => response.json())
         .then(data => {
@@ -43,7 +47,6 @@ export default {
             this.ready = true
           }
         })
-
-  }
+  },
 }
 </script>

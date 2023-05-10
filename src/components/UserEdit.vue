@@ -88,6 +88,7 @@ import {store} from './store.js'
 import router from './../router/index.js'
 
 export default {
+  name:"UserEdit",
   beforeMount() {
     Security.requireToken()
 
