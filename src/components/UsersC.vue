@@ -51,7 +51,7 @@ import notie from "notie"
 import {store} from './store.js'
 
 export default {
-  name:"Users",
+  name:"UsersC",
   data(){
     return {
       users: [],
