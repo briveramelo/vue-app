@@ -3,7 +3,7 @@
   <div>
     <router-view v-slot="{ Component }" :key="componentKey" @success="success" @error="error" @warning="warning" @forceUpdate="forceUpdate">
       <!-- this ensures that components cache state (eg: book filter) the include attribute needs to match the name field of the vue component (must define it to match) -->
-      <keep-alive include="Books">
+      <keep-alive include="BooksComposition">
         <component :is="Component" />
       </keep-alive>
     </router-view>

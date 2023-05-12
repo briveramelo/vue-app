@@ -1,8 +1,11 @@
 import {createRouter, createWebHistory } from 'vue-router'
 import Body from './../components/BodyC.vue'
-import Login from './../components/LoginC.vue'
-import Books from "@/components/BooksC.vue";
-import Book from "@/components/BookC.vue";
+// import Login from './../components/LoginC.vue'
+import LoginComposition from './../components/LoginComposition.vue'
+// import Books from "@/components/BooksC.vue";
+import BooksComposition from "@/components/BooksComposition.vue";
+// import Book from "@/components/BookC.vue";
+import BookComposition from "@/components/BookComposition.vue";
 import BooksAdmin from "@/components/BooksAdmin.vue";
 import BookEdit from "@/components/BookEdit.vue";
 import Users from "@/components/UsersC.vue";
@@ -15,20 +18,35 @@ const routes = [
         name: 'Home',
         component: Body
     },
+    // {
+    //     path: '/login',
+    //     name: 'Login',
+    //     component: Login
+    // },
     {
         path: '/login',
         name: 'Login',
-        component: Login
+        component: LoginComposition
     },
+    // {
+    //     path: '/books',
+    //     name: 'Books',
+    //     component: Books
+    // },
     {
         path: '/books',
-        name: 'Books',
-        component: Books
+        name: 'BooksComposition',
+        component: BooksComposition
     },
+    // {
+    //     path: '/books/:bookName',
+    //     name: 'Book',
+    //     component: Book
+    // },
     {
         path: '/books/:bookName',
         name: 'Book',
-        component: Book
+        component: BookComposition
     },
     {
         path: '/admin/books',
